@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root 'investors#index'
 
   resources :investors
+
+  resources :investor_tracker, only: [:new, :create]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
