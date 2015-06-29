@@ -1,0 +1,6 @@
+  <div class="page-header">
+    <%= link_to "Investors", investors_path, class:"btn btn-primary pull-right" %>
+    <h1>New Investor</h1>
+  </div>
+
+  <%= render partial: "investorform", locals: {button_nm: 'Create Investor'}  %>
