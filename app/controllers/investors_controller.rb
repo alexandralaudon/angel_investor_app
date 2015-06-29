@@ -11,7 +11,7 @@ class InvestorsController < ApplicationController
   def create
     @investor = Investor.new(investor_params)
     if @investor.save
-      flash[:notice] = "#{@investor.first_name} #{@investor.last_name} has been saved to the database."
+      flash[:notice] = "#{@investor.full_name} has been saved to the database."
       redirect_to investors_path
     else
       flash[:notice] = "Uh-oh, something went wrong and this investor was not saved. Try again."
@@ -26,7 +26,7 @@ class InvestorsController < ApplicationController
   def update
     @investor = Investor.find(params[:id])
     if @investor.update(investor_params)
-      flash[:notice] = "#{@investor.first_name} #{@investor.last_name} has been updated!"
+      flash[:notice] = "#{@investor.full_name} has been updated!"
       redirect_to investors_path
     else
       flash[:notice] = "Uh-oh, something went wrong and this investor was not updated. Try again."
@@ -37,7 +37,7 @@ class InvestorsController < ApplicationController
   def destroy
     @investor = Investor.find(params[:id])
     @investor.destroy
-    flash[:notice] = "#{@investor.first_name} #{@investor.last_name} has been deleted from the system."
+    flash[:notice] = "#{@investor.full_name} has been deleted from the system."
     redirect_to investors_path
   end
 
