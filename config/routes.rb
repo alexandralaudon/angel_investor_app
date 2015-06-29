@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :investors
 
-  resources :investor_tracker, only: [:new, :create]
+  resources :recommendations, only: [:new, :create]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

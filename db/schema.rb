@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629164713) do
+ActiveRecord::Schema.define(version: 20150629174256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,5 +35,7 @@ ActiveRecord::Schema.define(version: 20150629164713) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "recommendations", ["investor_id"], name: "index_recommendations_on_investor_id", using: :btree
 
 end
