@@ -12,7 +12,7 @@ class RecommendationsController < ApplicationController
       Investor.find(@recommendation.recommend3).increment!(:rank) if @recommendation.recommend3 != nil
 
       flash[:notice] = "#{@recommendation.investor.full_name}, thank you for adding recommendations!"
-      redirect_to investors_path
+      redirect_to root_path
     else
       flash[:notice] = "Uh-oh, something went wrong and these recommendations were not saved. Please try again."
       render :new
