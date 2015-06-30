@@ -19,6 +19,10 @@ class InvestorsController < ApplicationController
     end
   end
 
+  def show
+    @investor = Investor.find(params[:id])
+  end
+
   def edit
     @investor = Investor.find(params[:id])
   end

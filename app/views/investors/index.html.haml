@@ -15,7 +15,7 @@
     - @investors.each do |investor|
       %tr
         %td
-          = investor.full_name
+          = link_to investor.full_name, investor_path(investor.id)
         %td
           = investor.email
         %td
