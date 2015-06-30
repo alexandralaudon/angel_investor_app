@@ -36,6 +36,7 @@ gem 'haml'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'faker', '~> 1.4.3'
   gem 'byebug'
   gem 'pry', '~> 0.10.1'
   # Access an IRB console on exception pages or by using <%= console %> in views
