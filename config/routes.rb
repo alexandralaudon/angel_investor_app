@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :investors, except: :index
 
-  resources :recommendations, only: [:new, :create]
+  resources :endorsements, only: [:new, :create]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
