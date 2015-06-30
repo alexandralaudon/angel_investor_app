@@ -1,0 +1,18 @@
+%h1 ADD YOUR ENDORSEMENT!
+%br/
+.col-md-offset-2.col-md-8
+  .well
+    = form_for @endorsement do |f|
+      .form-horizontal
+        .form-group
+          = f.label :investor_id, 'Person making the recommendation', class: "col-md-4 control-label"
+          .col-md-5
+            = f.collection_select :investor_id, Investor.all, :id, :full_name, {prompt: 'Please select the person making the recommendation'}, {class:'form-control'}
+        .form-group
+          = f.label :endorsed, 'Person being endorsed', class: "col-md-4 control-label"
+          .col-md-5
+            = f.collection_select :endorsed, Investor.all, :id, :full_name, {prompt: 'Please select the person you wish to recommend...'}, {class:'form-control'}
+        %br/
+        .form-group
+          .col-md-offset-5
+            = f.submit 'Add Endorsement', class:'btn btn-primary'
