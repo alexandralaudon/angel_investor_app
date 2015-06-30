@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629174256) do
+ActiveRecord::Schema.define(version: 20150630132104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "endorsements", force: :cascade do |t|
+    t.integer  "investor_id"
+    t.integer  "endorsed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "comment"
+  end
+
+  add_index "endorsements", ["investor_id"], name: "index_endorsements_on_investor_id", using: :btree
 
   create_table "investors", force: :cascade do |t|
     t.string   "first_name"
@@ -26,16 +36,5 @@ ActiveRecord::Schema.define(version: 20150629174256) do
     t.datetime "updated_at"
     t.string   "linkedin"
   end
-
-  create_table "recommendations", force: :cascade do |t|
-    t.integer  "investor_id"
-    t.integer  "recommend1"
-    t.integer  "recommend2"
-    t.integer  "recommend3"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "recommendations", ["investor_id"], name: "index_recommendations_on_investor_id", using: :btree
 
 end
