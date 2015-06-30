@@ -1,5 +1,6 @@
 class Endorsement < ActiveRecord::Base
-  belongs_to :investors
+  belongs_to :investor
+  belongs_to :endorsed, :class_name => 'Investor'
 
   validate :unique_endorsement
 
