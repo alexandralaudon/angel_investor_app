@@ -5,9 +5,9 @@ class EndorsementsController < ApplicationController
   end
 
   def create
-    @endorsements = Endorsement.new(endorsement_params.merge(investor_id: 1))
+    @endorsements = Endorsement.new(endorsement_params)
     if @endorsements.save
-      Investor.find(@endorsements.endorsed).increment!(:rank) if @endorsements.endorsed != nil
+      Investor.find(@endorsements.endorsed).increment!(:rank)
       flash[:notice] = "#{@endorsements.investor.full_name}, thank you for adding your endorsement!"
       redirect_to root_path
     else

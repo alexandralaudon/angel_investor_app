@@ -3,10 +3,8 @@ class Endorsement < ActiveRecord::Base
 
   validate :unique_endorsement
 
-  # def unique_endorsement
-  #   if investor_idendorsedEndorsement.where(endorserecommend1 == recommend2 || recommend1 == recommend3 || recommend2 == recommend3
-  #     errors.add(:recommendation_unique, "cannot recommend someone twice")
-  #   end
-  # end
+  def unique_endorsement
+    errors.add(:recommendation_unique, "cannot endorse yourself") if investor_id == endorsed 
+  end
 
 end
