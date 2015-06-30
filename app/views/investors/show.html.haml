@@ -1,7 +1,15 @@
 .page-header
   = link_to "Investors", root_path, class:"btn btn-primary pull-right"
   %h1= @investor.full_name
-= "#{@investor.full_name}'s email is #{@investor.email}, and this investor has #{@investor.rank} recommendations."
-- @investor.endorsements.each do |endorsement|
-  = "#{endorsement.investor.full_name} has endorsed #{@investor.full_name} with the following recommendation:"
-  = "#{endorsement.comment}"
+%br
+%h5= "#{@investor.full_name}'s email is #{@investor.email}, and this investor has #{@endorsements.where(endorsed: @investor.id).count} recommendations."
+- @endorsements.where(endorsed: @investor.id).each do |endorsement|
+  %p
+  %strong= "#{Investor.find(endorsement.investor_id).full_name} has endorsed #{@investor.first_name} with the following recommendation:"
+  %p= "#{endorsement.comment}"
+%br
+%br
+- if @endorsements.where(investor_id: @investor.id).count > 0
+  %h5= "#{@investor.full_name} has also endorsed the following #{pluralize(@endorsements.where(investor_id: @investor.id).count, 'investor')}:"
+  - @endorsements.where(investor_id: @investor.id).each do |endorsement|
+    %li= "#{Investor.find(endorsement.endorsed).full_name}: #{endorsement.comment}"

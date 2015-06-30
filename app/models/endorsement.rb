@@ -1,10 +1,10 @@
 class Endorsement < ActiveRecord::Base
-  belongs_to :investor
+  belongs_to :investors
 
   validate :unique_endorsement
 
   def unique_endorsement
-    errors.add(:recommendation_unique, "cannot endorse yourself") if investor_id == endorsed 
+    errors.add(:recommendation_unique, "cannot endorse yourself") if investor_id == endorsed
   end
 
 end
