@@ -7,11 +7,15 @@
         .form-group
           = f.label :investor_id, 'Person making the recommendation', class: "col-md-4 control-label"
           .col-md-5
-            = f.collection_select :investor_id, Investor.all, :id, :full_name, {prompt: 'Please select the person making the recommendation'}, {class:'form-control'}
+            = f.collection_select :investor_id, Investor.order(:first_name), :id, :full_name, {prompt: 'Please select the person making the recommendation'}, {class:'form-control'}
         .form-group
-          = f.label :endorsed, 'Person being endorsed', class: "col-md-4 control-label"
+          = f.label :endorsed_id, 'Person being endorsed', class: "col-md-4 control-label"
           .col-md-5
-            = f.collection_select :endorsed, Investor.all, :id, :full_name, {prompt: 'Please select the person you wish to recommend...'}, {class:'form-control'}
+            = f.collection_select :endorsed_id, Investor.order(:first_name), :id, :full_name, {prompt: 'Please select the person you wish to recommend...'}, {class:'form-control'}
+        .form-group
+          = f.label :comment, "Add note about the investor you'd like to recommend", class: "col-md-4 control-label"
+          .col-md-5
+            = f.text_area :comment, class:'form-control'
         %br/
         .form-group
           .col-md-offset-5
