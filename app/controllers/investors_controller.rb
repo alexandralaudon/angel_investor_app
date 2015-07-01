@@ -21,7 +21,7 @@ class InvestorsController < ApplicationController
 
   def show
     @investor = Investor.find(params[:id])
-    @endorsements = Endorsement.where(endorsed: params[:id])
+    @endorsements = Endorsement.where(endorsed_id: @investor.id)
   end
 
   def edit

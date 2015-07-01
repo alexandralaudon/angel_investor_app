@@ -7,7 +7,7 @@ class EndorsementsController < ApplicationController
   def create
     @endorsement = Endorsement.new(endorsement_params)
     if @endorsement.save
-      Investor.find(@endorsement.endorsed).increment!(:rank)
+      Investor.find(@endorsement.endorsed_id).increment!(:rank)
       flash[:notice] = "#{@endorsement.investor.full_name}, thank you for adding your endorsement!"
       redirect_to root_path
     else
@@ -19,7 +19,7 @@ class EndorsementsController < ApplicationController
   private
 
   def endorsement_params
-    params.require(:endorsement).permit(:investor_id, :endorsed, :comment)
+    params.require(:endorsement).permit(:investor_id, :endorsed_id, :comment)
   end
 
 end

@@ -14,4 +14,5 @@
   .well
     %h5= "#{@investor.full_name} has also endorsed the following #{pluralize(@investor.endorsements.count, 'investor')}:"
     - @investor.endorsements.each do |endorsement|
-      %li= "#{Investor.find(endorsement.endorsed).full_name}: #{endorsement.comment}"
+      %li= link_to "#{Investor.find(endorsement.endorsed_id).full_name}:", investor_path(endorsement.endorsed_id) 
+      = "#{endorsement.comment}"

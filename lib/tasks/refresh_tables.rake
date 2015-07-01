@@ -17,7 +17,7 @@ namespace :refresh do
       endorsed_variable = investor_id_array.sample
 
       if investor_variable != endorsed_variable
-        Endorsement.create!(investor_id: investor_variable, endorsed: endorsed_variable, comment: Faker::Hacker.say_something_smart)
+        Endorsement.create!(investor_id: investor_variable, endorsed_id: endorsed_variable, comment: Faker::Hacker.say_something_smart)
       end
     end
     puts "#{Endorsement.count} endorsements generated."
