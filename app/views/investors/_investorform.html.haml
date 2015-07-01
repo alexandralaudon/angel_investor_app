@@ -1,4 +1,4 @@
-/ 
+/
 = form_for @investor do |f|
   .form-horizontal
     .form-group
@@ -17,10 +17,6 @@
       = f.label :email, 'Email', class: "col-md-2 control-label"
       .col-md-5
         = f.email_field :email, class: "form-control"
-    .form-group
-      = f.label :rank, 'Ranking', class: "col-md-2 control-label"
-      .col-md-5
-        = f.number_field :rank, class: "form-control"
     .form-group
       = f.label :linkedin, 'LinkedIn Profile URL', class: "col-md-2 control-label"
       .col-md-5
