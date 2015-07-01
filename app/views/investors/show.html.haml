@@ -5,14 +5,15 @@
 %br
 - if @endorsements.count > 0
   .well
-    = "This investor has #{@endorsements.count} recommendations."
+    %h5= "#{@investor.full_name} has #{pluralize(@endorsements.count, 'recommendation')}."
     - @endorsements.each do |endorsement|
       %p
-      %strong= "#{endorsement.investor.full_name} has endorsed #{@investor.full_name} with the following recommendation:"
-      %p= "#{endorsement.comment}"
+      %li= link_to "#{endorsement.investor.full_name}:", investor_path(endorsement.investor.id)
+      = "#{endorsement.comment}"
+
 - if @investor.endorsements.count > 0
   .well
-    %h5= "#{@investor.full_name} has also endorsed the following #{pluralize(@investor.endorsements.count, 'investor')}:"
+    %h5= "#{@investor.full_name} has endorsed the following #{pluralize(@investor.endorsements.count, 'investor')}:"
     - @investor.endorsements.each do |endorsement|
-      %li= link_to "#{Investor.find(endorsement.endorsed_id).full_name}:", investor_path(endorsement.endorsed_id) 
+      %li= link_to "#{Investor.find(endorsement.endorsed_id).full_name}:", investor_path(endorsement.endorsed_id)
       = "#{endorsement.comment}"
