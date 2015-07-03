@@ -10,4 +10,13 @@ class Investor < ActiveRecord::Base
     "#{first_name} #{last_name}".titleize
   end
 
+  def self.search(search)
+    if search
+      where("(first_name || last_name) LIKE ?", "%#{search}%")
+    else
+      all
+    end
+  end
+
+
 end

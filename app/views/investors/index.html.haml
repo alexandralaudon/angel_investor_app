@@ -3,7 +3,11 @@
   %h1 ANGEL INVESTORS
   .col-md-offset-2.col-md-10
   = link_to "Add Endorsement", new_endorsement_path, class:"btn btn-info pull-right"
-%h4 Extra text, if you want to display something specific.
+= form_tag root_path, :method => 'get' do
+  .form-group
+    .col-md-6
+      = text_field_tag :search, params[:search], class:'form-control'
+    = submit_tag "Search", :name => nil, class:'btn btn-primary control-label'
 %table.table.table-striped.table-bordered
   %thead
     %tr
@@ -28,3 +32,4 @@
           = link_to "Edit", edit_investor_path(investor.id)
         %td
           = link_to '', investor_path(investor.id), method: :delete, class:"glyphicon glyphicon-remove"
+= will_paginate @investors

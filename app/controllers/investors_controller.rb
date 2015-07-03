@@ -1,7 +1,11 @@
 class InvestorsController < ApplicationController
 
   def index
-    @investors = Investor.order(rank: :desc)
+    if params[:search]
+      @investors = Investor.search(params[:search]).order(rank: :desc).paginate(:per_page => 10, :page => params[:page])
+    else
+      @investors = Investor.order(rank: :desc).paginate(:per_page => 10, :page => params[:page])
+    end
   end
 
   def new
