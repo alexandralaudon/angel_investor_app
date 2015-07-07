@@ -3,21 +3,21 @@
     %thead
       %tr
         %th Full Name
+        %th Add Your Endorsement
         %th Email
         %th Company
         %th Rank
-        %th Add Endorsement
     %tbody
       - @investors.each do |investor|
         %tr
           %td
             = link_to investor.full_name, investor_path(investor.id)
           %td
+            = link_to "Endorsement", new_endorsement_path(endorsed_id: investor.id), class:"btn btn-info center-block input-sm"
+          %td
             = investor.email
           %td
             = investor.company
           %td
             = investor.rank
-          %td
-            = link_to "Add Endorsement", new_endorsement_path(endorsed_id: investor.id), class:"btn btn-info pull-right"
   = will_paginate @investors
