@@ -15,11 +15,6 @@
 //= require_tree .
 
 $(function () {
-  // $('#investors th a').live('click', function () {
-  //   $.getScript(this.href);
-  //   return false;
-  // });
-  
   $('#investors_search').on('ajax:success', function(_,data,_) {
     $('#investors_table').replaceWith(data)
   });
@@ -27,6 +22,9 @@ $(function () {
   $('#investors_search input').on('keyup', function () {
     $('#investors_search').submit()
   });
+
+  $(event.keyCode == 8 || event.keyCode == 46).on('keyup', function () {
+    $('#investors_search').submit()
+  });
+
 })
-
-
