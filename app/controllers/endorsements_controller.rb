@@ -2,6 +2,7 @@ class EndorsementsController < ApplicationController
 
   def new
     @endorsement = Endorsement.new
+    @endorsed_id = params[:endorsed_id]
   end
 
   def create

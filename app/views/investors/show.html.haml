@@ -1,6 +1,8 @@
 .page-header
-  = link_to "Investors", root_path, class:"btn btn-primary pull-right"
   %h1= @investor.full_name
+  = link_to "Add Endorsement for Loren", new_endorsement_path(endorsed_id: @investor.id), class: 'btn btn-primary'
+  = link_to "Edit #{@investor.first_name}'s info", edit_investor_path(@investor.id), class: 'btn btn-danger'
+  = link_to "Delete #{@investor.first_name}", investor_path(@investor.id), method: :delete, class: 'btn btn-danger'
 %h5= mail_to(@investor.email)
 %br
 - if @endorsements.count > 0

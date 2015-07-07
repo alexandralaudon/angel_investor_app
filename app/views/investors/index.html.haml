@@ -1,9 +1,6 @@
 .page-header
   = link_to "Create Investor", new_investor_path, class:"btn btn-primary pull-right"
   %h1 ANGEL INVESTORS
-  .col-md-offset-2.col-md-10
-  = link_to "Add Endorsement", new_endorsement_path, class:"btn btn-info pull-right"
-
 = form_tag root_path, :method => 'get', remote: true, :id => "investors_search" do
   .form-group
     .col-md-6

@@ -13,7 +13,7 @@
         .form-group
           = f.label :endorsed_id, 'Person being endorsed', class: "col-md-4 control-label"
           .col-md-5
-            = f.collection_select :endorsed_id, Investor.order(:first_name), :id, :full_name, {prompt: 'Please select the person you wish to recommend...'}, {class:'form-control'}
+            = f.collection_select :endorsed_id, Investor.order(:first_name), :id, :full_name, {selected: @endorsed_id}, {class:'form-control'}
         .form-group
           = f.label :comment, "Add note about the investor you'd like to recommend", class: "col-md-4 control-label"
           .col-md-5

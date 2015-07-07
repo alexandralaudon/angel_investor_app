@@ -6,8 +6,7 @@
         %th Email
         %th Company
         %th Rank
-        %th Edit
-        %th Delete
+        %th Add Endorsement
     %tbody
       - @investors.each do |investor|
         %tr
@@ -20,8 +19,5 @@
           %td
             = investor.rank
           %td
-            = link_to "Edit", edit_investor_path(investor.id)
-          %td
-            = link_to '', investor_path(investor.id), method: :delete, class:"glyphicon glyphicon-remove"
-
+            = link_to "Add Endorsement", new_endorsement_path(endorsed_id: investor.id), class:"btn btn-info pull-right"
   = will_paginate @investors
