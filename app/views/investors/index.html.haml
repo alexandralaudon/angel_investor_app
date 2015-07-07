@@ -3,10 +3,11 @@
   %h1 ANGEL INVESTORS
   .col-md-offset-2.col-md-10
   = link_to "Add Endorsement", new_endorsement_path, class:"btn btn-info pull-right"
-= form_tag root_path, :method => 'get', :id => "products_search" do
+
+= form_tag root_path, :method => 'get', remote: true, :id => "investors_search" do
   .form-group
     .col-md-6
       = text_field_tag :search, params[:search], class:'form-control'
     = submit_tag "Search", :name => nil, class:'btn btn-primary control-label'
-  #investors= render 'investors'
-= will_paginate @investors
+
+= render 'investors'

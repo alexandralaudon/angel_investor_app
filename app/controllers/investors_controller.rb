@@ -6,6 +6,7 @@ class InvestorsController < ApplicationController
     else
       @investors = Investor.order(rank: :desc).paginate(:per_page => 10, :page => params[:page])
     end
+    render partial: 'investors', layout: false if request.xhr?
   end
 
   def new

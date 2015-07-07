@@ -1,24 +1,27 @@
-%table.table.table-striped.table-bordered
-  %thead
-    %tr
-      %th Full Name
-      %th Email
-      %th Company
-      %th Rank
-      %th Edit
-      %th Delete
-  %tbody
-    - @investors.each do |investor|
+#investors_table
+  %table.table.table-striped.table-bordered
+    %thead
       %tr
-        %td
-          = link_to investor.full_name, investor_path(investor.id)
-        %td
-          = investor.email
-        %td
-          = investor.company
-        %td
-          = investor.rank
-        %td
-          = link_to "Edit", edit_investor_path(investor.id)
-        %td
-          = link_to '', investor_path(investor.id), method: :delete, class:"glyphicon glyphicon-remove"
+        %th Full Name
+        %th Email
+        %th Company
+        %th Rank
+        %th Edit
+        %th Delete
+    %tbody
+      - @investors.each do |investor|
+        %tr
+          %td
+            = link_to investor.full_name, investor_path(investor.id)
+          %td
+            = investor.email
+          %td
+            = investor.company
+          %td
+            = investor.rank
+          %td
+            = link_to "Edit", edit_investor_path(investor.id)
+          %td
+            = link_to '', investor_path(investor.id), method: :delete, class:"glyphicon glyphicon-remove"
+
+  = will_paginate @investors
