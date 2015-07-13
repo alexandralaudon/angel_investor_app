@@ -18,6 +18,10 @@
       .col-md-5
         = f.email_field :email, class: "form-control"
     .form-group
+      = f.label :status, 'Status', class: "col-md-2 control-label"
+      .col-md-5
+        =f.collection_select :status, Investor::STATUS, :to_s, :to_s, {}, {class:'form-control'}
+    .form-group
       = f.label :linkedin, 'LinkedIn Profile URL', class: "col-md-2 control-label"
       .col-md-5
         = f.text_field :linkedin, class: "form-control"

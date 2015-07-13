@@ -5,6 +5,7 @@
         %th Full Name
         %th Add Your Endorsement
         %th Email
+        %th Status
         %th Company
         %th Rank
     %tbody
@@ -16,6 +17,8 @@
             = link_to "Endorsement", new_endorsement_path(endorsed_id: investor.id), class:"btn btn-info center-block input-sm"
           %td
             = investor.email
+          %td
+            = investor.status
           %td
             = investor.company
           %td
