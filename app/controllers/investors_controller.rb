@@ -51,6 +51,12 @@ class InvestorsController < ApplicationController
     redirect_to root_path
   end
 
+  def import
+    Investor.import(params[:file])
+    flash[:notice] = "Investors imported."
+    redirect_to root_path
+  end
+
   private
 
   def investor_params
